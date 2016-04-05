@@ -5,5 +5,7 @@ Description of the project. This is questionnaire (frontend: AngularJS, Backend:
 - adding to the site through iframe
 
 Step 1: Registration
+
 Step 2: Answering
+
 Step 3: Get Results (Removed from example)
