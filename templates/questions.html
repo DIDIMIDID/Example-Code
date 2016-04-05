@@ -1,0 +1,51 @@
+<div class="inquirer-block">
+    <h2 id="iframe-top" class="inquirer-block__caption">Your Progress</h2>
+
+    <div class="question-box">
+
+        <div class="inquirer-progress-bar">
+            <div class="inquirer-progress-bar__value code">{{progress}}%</div>
+            <div class="inquirer-progress-bar__progress" ng-style="{'width': progress+'%'}"></div>
+        </div>
+
+        <table class="inquirer-table ipt_uif_matrix" ng-repeat="table in tables">
+            <thead>
+                <tr class="inquirer-table__tr--1">
+                    <th class="inquirer-table__th--1" scope="col"></th>
+                    <th scope="col" ng-repeat="header in table.headers">{{header}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="question in table.questions">
+                    <th class="inquirer-table__th--1" scope="row"><span>{{question.name}}</span></th>
+                    <td>
+                        <input ng-model="data.tables[table.k].questions[question.k].answer" type="radio" value="0" name="{{question.id}}" id="{{question.id}}___0">
+                        <label for="{{question.id}}___0"></label>
+                    </td>
+                    <td>
+                        <input ng-model="data.tables[table.k].questions[question.k].answer" type="radio" value="1" name="{{question.id}}" id="{{question.id}}___1">
+                        <label for="{{question.id}}___1"></label>
+                    </td>
+                    <td>
+                        <input ng-model="data.tables[table.k].questions[question.k].answer" type="radio" value="2" name="{{question.id}}" id="{{question.id}}___2">
+                        <label for="{{question.id}}___2"></label>
+                    </td>
+                    <td>
+                        <input ng-model="data.tables[table.k].questions[question.k].answer" type="radio" value="3" name="{{question.id}}" id="{{question.id}}___3">
+                        <label for="{{question.id}}___3"></label>
+                    </td>
+                    <td>
+                        <input ng-model="data.tables[table.k].questions[question.k].answer" type="radio" value="4" name="{{question.id}}" id="{{question.id}}___4">
+                        <label for="{{question.id}}___4"></label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="buttons">
+        <button ng-click="prevQuestions()" ng-show="prevButton">Previous</button>
+        <button ng-click="nextQuestions()" ng-show="nextButton">Next</button>
+        <button ng-click="getResult()" ng-show="finishButton">Finish</button>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="inquirer-block start-page">
+    <h2 class="inquirer-block__caption">{{data.inquirer.name}}</h2>
+    <div ng-show="dataLoaded" novalidate>
+        
+        <form name="StartForm" ng-class="{ 'form-not-valid' : !StartForm.$valid && submited }" ng-submit="StartForm.$valid && startPoll()" novalidate>
+            
+            <div class="table-row row" ng-repeat="field in data.inquirer.additional_fields.req">
+                <label for="{{field.id}}">{{field.name}}</label>
+                <input 
+                    ng-model="data.interviewee.req[field.id]" 
+                    type="{{field.type}}" name="{{field.id}}" id="{{field.id}}" 
+                    ng-class="{ 'has-error' : StartForm.{{field.id}}.$error.required || StartForm.{{field.id}}.$error.email }" 
+                    required
+                >
+                
+            </div>
+            <div class="table-row row" ng-repeat="field in data.inquirer.additional_fields.rep">
+                <label for="{{field.id}}">{{field.name}}</label>
+                <input 
+                    ng-model="data.interviewee.rep[field.id]" 
+                    type="{{field.type}}" name="{{field.id}}" id="{{field.id}}" 
+                    ng-class="{ 'has-error' : StartForm.{{field.id}}.$error.required }" 
+                    required
+                >
+                
+            </div>
+            
+            <div class="table-row row" ng-show="promo.show">
+                <label for="promo_code">Promo Code</label>
+                <input ng-model="data.interviewee.promo_code" type="text" name="promo_code" id="promo_code">
+            </div>
+            
+            
+            <input ng-model="submited" class="inquirer-btn" type="submit" value="Start" ng-click="submited=true">
+        </form>
+        
+    </div>
+    <h4 ng-show="dataFailed">Loading failed.</h4>
+    <div data-spinner ng-hide="dataLoaded || dataFailed"></div>    
+</div>
